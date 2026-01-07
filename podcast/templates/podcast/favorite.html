@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Favorites</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<h1 class="main-title">Favorite episodes</h1>
+
+<div id="favList">
+    {% for ep in favorites %}
+    <div class="episode">
+        <h3>{{ ep.title }}</h3>
+
+        <audio controls>
+            <source src="{{ ep.audio.url }}" type="audio/mpeg">
+        </audio>
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="episode_id" value="{{ ep.id }}">
+            <button>Delete from favorites</button>
+        </form>
+    </div>
+    {% empty %}
+        <p>No favorite episodes yet</p>
+    {% endfor %}
+</div>
+
+<a href="{% url 'home' %}" class="back-btn">Back</a>
+
+</body>
+</html>

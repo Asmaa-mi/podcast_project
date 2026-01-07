@@ -1,0 +1,214 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    direction: rtl;
+    background: linear-gradient(135deg, #f0f4f8, #e6edf3);
+    text-align: center;
+    padding: 30px;
+    margin: 0;
+}
+
+.podcast-card {
+    width: 280px;
+    background: #ffffff;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.podcast-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
+
+.podcast-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.podcast-card h2 {
+    margin: 15px 0 10px;
+    color: #1f2937;
+}
+
+.podcast-card button {
+    margin: 10px auto 18px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #a5a3d5, #34d8ca);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.podcast-card button:hover {
+    background: linear-gradient(135deg, #8b87b9, #34d8ca);
+    transform: scale(1.05);
+}
+
+.episodes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 10px;
+}
+
+.episode {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    padding: 18px 15px 22px;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 320px;
+    flex: 0 0 calc(33.333% - 25px); /* 3 حلقات بالسطر */
+    box-sizing: border-box;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.episode:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.16);
+}
+
+.episode h3 {
+    margin: 5px 0 12px;
+    color: #065f46;
+}
+
+.episode audio {
+    width: 100%;
+    margin: 10px 0 14px;
+}
+
+.episode button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #0bf58c, #fbbf24);
+    color: #065f46;
+    font-size: 13px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.episode button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.links {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.links a {
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 18px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #5994f2, #114d97);
+    color: white;
+    font-size: 14px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.links a:hover {
+    background: linear-gradient(135deg, #5994f2, #114d97);
+    transform: translateY(-3px);
+}
+
+.main-title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    color: #1f2937;
+    position: relative;
+    display: inline-block;
+}
+
+.main-title::after {
+    content: "";
+    position: absolute;
+    width: 75%;
+    height: 5px;
+    background: linear-gradient(135deg, #4f46e5, #22c55e);
+    left: 50%;
+    bottom: -12px;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+.clear-favorite {
+    display: inline-block;
+    margin: 25px auto;
+    padding: 12px 22px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ef4444, #d24040);
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+     
+}
+
+.clear-favorite:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, #ef4454, #d24140);
+}
+
+.back-btn {
+    display: inline-block;
+    margin: 25px auto;
+    padding: 12px 22px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #64748b, #475569);
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, #475569, #334155);
+}
+
+#favList {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* المسافة بين الحلقات */
+    margin-top: 30px;
+}
+
+#favList .episode {
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .episode {
+        flex: 0 0 calc(50% - 25px); 
+    }
+}
+
+@media (max-width: 600px) {
+    .episode {
+        flex: 0 0 100%; 
+    }
+    .back-btn {
+        font-size: 13px;
+        padding: 10px 18px;
+    }
+}
+
+    
+
+

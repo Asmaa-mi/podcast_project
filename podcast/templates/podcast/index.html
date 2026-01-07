@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>My Podcast</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<h1 class="main-title">Podcasts</h1>
+
+<div class="episodes-container">
+{% for podcast in podcasts %}
+    <div class="podcast-card" onclick="location.href='{% url 'episodes' podcast.id %}'">
+        <img src="{{ podcast.image.url }}">
+        <h2>{{ podcast.title }}</h2>
+        <button>Enter</button>
+    </div>
+{% endfor %}
+</div>
+
+</body>
+</html>

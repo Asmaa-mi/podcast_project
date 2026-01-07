@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ podcast.title }}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<h1 class="main-title">{{ podcast.title }}</h1>
+
+<div class="episodes-container">
+{% for ep in episodes %}
+    <div class="episode">
+        <h3>{{ ep.title }}</h3>
+
+        <audio controls>
+            <source src="{{ ep.audio.url }}" type="audio/mpeg">
+        </audio>
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="episode_id" value="{{ ep.id }}">
+            <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="episode_id" value="{{ ep.id }}">
+    <button type="submit">Add to favorites</button>
+</form>
+
+        </form>
+    </div>
+{% empty %}
+    <p>No episodes to this podcast</p>
+{% endfor %}
+</div>
+
+<a href="{% url 'home' %}" class="back-btn">Back</a>
+<a href="{% url 'favorite' %}" class="clear-favorite">Favorites</a>
+
+
+</body>
+</html>
