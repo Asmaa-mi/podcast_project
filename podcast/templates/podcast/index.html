@@ -13,7 +13,7 @@
 <div class="episodes-container">
 {% for podcast in podcasts %}
     <div class="podcast-card" onclick="location.href='{% url 'episodes' podcast.id %}'">
-        <img src="{{ podcast.image.url }}">
+        <img src="{{ podcast.image }}">
         <h2>{{ podcast.title }}</h2>
         <button>Enter</button>
     </div>
